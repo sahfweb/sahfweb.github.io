@@ -52,13 +52,52 @@ html{
 
 /* our teem ***** */
 
-.our-team{
+.team-sect{
     position: relative;
-    margin: 2rem;
-    display: flex;
-    flex-wrap:wrap;
+    top: 3rem;
+    margin: 1rem;
 }
 
+.team-sect h1{
+    position: relative;
+    font-size: 1.5rem;
+    text-align: center;
+
+}
+
+.our-team{
+    position: relative;
+    margin: 2.5rem;
+    padding-bottom: 2rem;
+    background-color: aqua;
+    display: flex;
+    flex-wrap:wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-cont-head{
+    position: relative;
+    width: calc(100%/2);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+
+.team-cont-depa{
+    position: relative;
+    width: calc(100%/4);
+    display: flex;
+    
+}
+
+.team-cont-all{
+    position: relative;
+    width: calc(100%/4);
+    display: flex;
+    
+}
 
 .card{
     position: relative;
@@ -67,7 +106,6 @@ html{
     background: #fff;
     overflow: hidden;
     border-radius: 1rem;
-    margin:auto;
     margin-top: 2rem;
     box-shadow: .2rem .4rem .3rem .1rem rgba(88 , 88,88, .42);
 
