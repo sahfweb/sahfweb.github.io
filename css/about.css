@@ -160,9 +160,10 @@ html{
 }
 
 
-.form-group button{
+
+.donate-details button{
     position: relative;
-    margin: -.1rem ;
+    margin: 4rem ;
     border:none;
     font-size: 1.3rem;
     outline: none;
