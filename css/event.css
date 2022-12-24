@@ -55,7 +55,7 @@ html{
     position: relative;
     display: flex;
     top: 5rem;
-    height: 100vh;
+    height: 50vh;
     flex-wrap: nowrap;
     justify-content: center;
     margin: 2rem 2rem 7rem 2rem;
