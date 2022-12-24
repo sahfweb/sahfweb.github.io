@@ -69,7 +69,6 @@ html{
     position: relative;
     margin: 2.5rem;
     padding-bottom: 2rem;
-    background-color: aqua;
     display: flex;
     flex-wrap:wrap;
     align-items: center;
