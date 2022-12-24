@@ -390,6 +390,10 @@ html{
 
 @media (max-width:30rem) {
 
+    .allpagtop-img h1{
+        left: 20%;
+    }
+
     .donate-now{
         height: 117rem;
     }
