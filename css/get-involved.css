@@ -380,16 +380,16 @@ html{
     }
     
     .form-title p{
-        margin: 1rem 3rem 1rem 3rem;
+        margin: 1rem 3rem;
         font-size: 1.5rem;
         letter-spacing: .01rem;
-        padding-top:5rem ;
+        padding-top:.7rem ;
         font-weight: 300;
 
     }
 
     .involved-form{
-        height:125rem;
+        height:115rem;
         top: 4rem;
         margin-bottom: 5rem;
         width: 32rem;
@@ -400,16 +400,16 @@ html{
         width: 26rem;
     }
     .form-group label{
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
     .form-group label p{
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
 
     .form-group input{
         margin: .3rem ;
         padding: .3rem 1rem;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
     .form-group p{
         font-size: 1.5rem;
@@ -438,7 +438,7 @@ html{
     }
 
     .form-title p{
-        margin: 3rem 0rem 1rem 0rem;
+        margin: .5rem 2rem;
         font-size: 1.5rem;
         letter-spacing: .01rem;
         word-spacing: .2rem;
@@ -447,8 +447,8 @@ html{
     }
 
     .involved-form{
-        height:127rem;
-        margin: 5rem;
+        height:115rem;
+        margin-bottom: 5rem;
         width: auto;
     }
 
@@ -457,15 +457,15 @@ html{
         width: auto;
     }
     .form-group label{
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
     .form-group label p{
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
     .form-group input{
         margin: .3rem ;
         padding: .3rem 1rem;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
     .form-group p{
         font-size: 1.5rem;
@@ -474,12 +474,13 @@ html{
     .workwith-form{
         width: 35rem;
         border: none;
+        height: 130rem;
         align-items: center;
     }
 
     
     .workwith-group{
-    width: 30rem;
+        width: 28rem;
    
     }
     

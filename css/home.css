@@ -900,6 +900,10 @@ header label {
        
     }
 
+    .welcome-img h2{
+        top: -1rem;
+    }
+
     /****** event****/
 
     .event-cont{
