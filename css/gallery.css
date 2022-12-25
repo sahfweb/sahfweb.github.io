@@ -7,7 +7,7 @@
 }
 
 html{
-    font-size: 100%;
+    font-size: 62.5%;
 }
 
 .allpagtop-img{
@@ -35,7 +35,7 @@ html{
     text-align: center;
     justify-content: center;
     display: flex;
-    color: rgb(245, 225, 225);
+    color: rgb(105 255 60);
     font-weight: 800;
     font-family: sans-serif;
     top: 47%;
