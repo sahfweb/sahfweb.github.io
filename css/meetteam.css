@@ -60,7 +60,9 @@ html{
 
 .team-sect h1{
     position: relative;
-    font-size: 1.5rem;
+    font-size: 2.0rem;
+    text-transform: uppercase;
+    font-weight: 1000;
     text-align: center;
 
 }
