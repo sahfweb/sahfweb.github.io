@@ -57,14 +57,14 @@ html{
     top: 1rem;
     color: black;
     font-weight: 500;
-    font-size: 1.5rem;
+    font-size: 2rem;
     text-align: center;
 }
 
 .donate-now h5::before{
     position: absolute;
     content: "";
-    width: 18rem;
+    width: 20rem;
     height: .1rem;
     background-color: rgb(107, 13, 13);
     bottom: -.1rem;
@@ -76,7 +76,7 @@ html{
     position: relative;
     color: black;
     font-weight: 500;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     top: 2rem;
     letter-spacing: .1rem;
     font-family: sans-serif;
@@ -106,7 +106,7 @@ html{
 .donate-details h6{
     position: relative;
     top: 2rem;
-    font-size: 1.5REM;
+    font-size: 2rem;
     font-weight: 500;
     letter-spacing: .1rem;
     font-family: sans-serif;
@@ -115,7 +115,7 @@ html{
 .donate-details p{
     position: relative;
     top: 4rem;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     letter-spacing: .1rem;
     font-family: sans-serif;
     text-align: center;
@@ -215,7 +215,7 @@ html{
 
 .LEGAL-POLICY h4{
     position: relative;
-    top: 1.5rem;
+    top: 2rem;
     font-size: 2rem;
     color: rgb(77, 8, 8);
     font-family: sans-serif;
@@ -226,7 +226,7 @@ html{
 
 .LEGAL-POLICY h3{
     position: relative;
-    top: 1.5rem;
+    top: 2rem;
     font-size: 2rem;
     color: rgb(77, 8, 8);
     font-family: sans-serif;
@@ -257,7 +257,7 @@ html{
 
 .LEGAL-POLICY pre{
     position: relative;
-    top: 1.5rem;
+    top: 2rem;
     font-size: 2.3rem;
     color: rgb(77, 8, 8);
     font-family: sans-serif;
@@ -267,7 +267,7 @@ html{
 
 .LEGAL-POLICY h5{
     position:relative;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     color: rgb(77, 8, 8);
     font-family: sans-serif;
 
@@ -276,7 +276,7 @@ html{
 
 .LEGAL-POLICY h6{
     position: relative;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     color: rgb(21, 20, 20);
     font-family: sans-serif;
     top: 1rem;
@@ -289,7 +289,7 @@ html{
 .LEGAL-POLICY p{
     position: relative;
     top: 2rem;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     color: rgb(21, 20, 20);
     font-family: sans-serif;
     top: .5rem;
@@ -323,7 +323,7 @@ html{
 
 .vision h5{
     position:relative;
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: rgb(77, 8, 8);
     font-family: sans-serif;
 
@@ -331,7 +331,7 @@ html{
 
 .vision h6{
     position: relative;
-    font-size: 1.3rem;
+    font-size: 2rem;
     color: rgb(21, 20, 20);
     font-family: sans-serif;
     top: 1rem;
@@ -342,7 +342,7 @@ html{
 .vision p{
     position: relative;
     top: 2rem;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     color: rgb(21, 20, 20);
     font-family: sans-serif;
     top: .5rem;
