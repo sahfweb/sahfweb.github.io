@@ -17,14 +17,14 @@ html{
     display: flex;
     align-items: center;
     z-index: 1000;
-    height: 7.5rem;
+    height: 7rem;
     width: 100%;
     border-bottom: .1rem solid rgb(206, 133, 23);
    
 }
 
 .header p{
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: black;
   font-family: sans-serif;
   font-weight: 500;
@@ -40,6 +40,7 @@ html{
     width: 7.5rem;
     left: 0%;
     top: 0%;
+    margin: 1rem;
 
 }
 .logo img{
@@ -116,8 +117,8 @@ html{
     color: white;
     top: 2.6rem;
     right: 4rem;
-    padding: .3rem;
-    font-size: 1.3rem;
+    padding: .5rem;
+    font-size: 1.4rem;
     border-radius: .4rem;
 
 }
@@ -828,7 +829,7 @@ header label {
         position: absolute;
         top: 100%;
         right: 0;
-        width: 25rem;
+        width: 28rem;
         height: 100vh;
         background:  white;
         overflow:auto;

@@ -36,8 +36,6 @@ html{
     position: absolute;
     font-size: 2rem;
     text-align: center;
-    justify-content: center;
-    display: flex;
     color: rgb(105 255 60);
     font-weight: 800;
     font-family: sans-serif;
