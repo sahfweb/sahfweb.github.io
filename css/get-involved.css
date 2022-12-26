@@ -413,10 +413,13 @@ html{
         font-size: 1.5rem;
     }
 
+    .workwith-form{
+        height: 130rem;
+    }
 
-
-
-   
+    .allpagtop-img h1{
+        left: 35%;
+    }
 
 }
 
@@ -445,7 +448,7 @@ html{
     }
 
     .involved-form{
-        height:115rem;
+        height:120rem;
         margin-bottom: 5rem;
         width: auto;
     }
@@ -470,9 +473,9 @@ html{
     }
 
     .workwith-form{
-        width: 35rem;
+        width: 32rem;
         border: none;
-        height: 130rem;
+        height: 135rem;
         align-items: center;
     }
 
@@ -482,4 +485,7 @@ html{
    
     }
     
+    .allpagtop-img h1{
+        left: 27%;
+    }
 }

@@ -284,7 +284,9 @@ iframe{
     
     }
 
-    
+    .allpagtop-img h1{
+        left: 38%;
+    }
     
        
 }
@@ -311,6 +313,10 @@ iframe{
 
     .input-form input ,.input-form textarea{
         font-size: 1.5rem;
+    }
+
+    .allpagtop-img h1{
+        left: 33%;
     }
 
 

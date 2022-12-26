@@ -54,6 +54,7 @@ html{
     position: relative;
     top: 3rem;
     margin: 1rem;
+    
 }
 
 .team-sect h1{
@@ -67,7 +68,6 @@ html{
 
 .our-team{
     position: relative;
-    margin: 2.5rem;
     padding-bottom: 2rem;
     display: flex;
     flex-wrap:wrap;
@@ -219,9 +219,17 @@ html{
      text-align: center;
 }
 
-
+@media(max-width:80rem){
+    .team-cont-all{
+        width: calc(100%/4);
+    }
+}
 
 @media(max-width:62rem){
+
+    .team-cont-head{
+        width: calc(100%/3);
+    }
     .team-cont-depa{
         width: calc(100%/3);
         
@@ -235,6 +243,10 @@ html{
 
 
 @media(max-width:48rem){
+    .team-cont-head{
+        width: calc(100%/2);
+        justify-content: center;
+    }
     .team-cont-depa{
         width: calc(100%/2);
         
@@ -244,6 +256,11 @@ html{
         width: calc(100%/2);
         
     }
+
+    .allpagtop-img h1{
+        left: 35%;
+    }
+    
      
     
     
@@ -264,6 +281,9 @@ html{
     .team-cont-all{
         width: calc(100%);
         
+    }
+    .allpagtop-img h1{
+        left: 30%;
     }
     
    

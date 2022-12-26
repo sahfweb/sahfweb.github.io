@@ -39,8 +39,8 @@ html{
     color: rgb(105 255 60);
     font-weight: 800;
     font-family: sans-serif;
-    top: 47%;
-    left: 35%;
+    top: 55%;
+    left: 40%;
     letter-spacing: 0.05rem;
 }
 
@@ -389,7 +389,7 @@ html{
 @media (max-width:30rem) {
 
     .allpagtop-img h1{
-        left: 20%;
+        left: 30%;
     }
 
     .donate-now{
