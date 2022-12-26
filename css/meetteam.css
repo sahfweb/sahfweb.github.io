@@ -40,8 +40,8 @@ html{
     text-align: center;
     justify-content: center;
     display: flex;
-    color: rgb(73, 6, 6);
-    font-weight: 800;
+    color: rgb(105 255 60);
+    font-weight: 1000;
     font-family: sans-serif;
     top: 55%;
     left: 40%;
@@ -60,7 +60,9 @@ html{
 
 .team-sect h1{
     position: relative;
-    font-size: 1.5rem;
+    font-size: 2.0rem;
+    text-transform: uppercase;
+    font-weight: 1000;
     text-align: center;
 
 }
@@ -77,7 +79,7 @@ html{
 
 .team-cont-head{
     position: relative;
-    width: calc(100%/2);
+    width: calc(100%/4);
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -86,7 +88,7 @@ html{
 
 .team-cont-depa{
     position: relative;
-    width: calc(100%/4);
+    width: calc(100%/3);
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -96,7 +98,7 @@ html{
 
 .team-cont-all{
     position: relative;
-    width: calc(100%/4);
+    width: calc(100%/5);
     display: flex;
     align-items: center;
     justify-content: space-around;

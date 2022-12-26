@@ -497,7 +497,7 @@ header label {
     top: 4.5rem;
     font-size: 1.3rem;
     font-family: sans-serif;
-    color:rgb(63, 60, 60);
+    color:rgb(177, 133, 133);
 }
     
 .volunteer-join1 {
@@ -570,7 +570,7 @@ header label {
     position: absolute;
     top: 1rem;
     left: 27%;
-    color: wheat;
+    color: rgb(255, 255, 255);
     font-size: 1.5rem;
 }
     
@@ -578,7 +578,7 @@ header label {
     position: absolute;
     display: flex;
     top: 3.5rem;
-    color: rgb(209, 192, 164);
+    color: rgb(255, 255, 255);
     font-size: 1.2rem;
     left: 12%;
     font-weight: 600;
