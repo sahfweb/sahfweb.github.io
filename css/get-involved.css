@@ -93,7 +93,7 @@ html{
 .involved-form{
     position: relative;
     top:3rem;
-    height: 125rem;
+    height: 130rem;
     width: 50rem;
     margin-bottom: 5rem;
     background-color: white;
@@ -144,7 +144,7 @@ html{
 
 .form-group p{
     position: relative;
-    font-family: serif;
+    font-family: sans-serif;
     margin: .4rem ;
     color:black;
     padding: .5rem 1rem;
@@ -389,7 +389,7 @@ html{
     }
 
     .involved-form{
-        height:115rem;
+        height:120rem;
         top: 4rem;
         margin-bottom: 5rem;
         width: 32rem;
