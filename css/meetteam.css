@@ -59,7 +59,7 @@ html{
 
 .team-sect h1{
     position: relative;
-    font-size: 2.0rem;
+    font-size: 2rem;
     text-transform: uppercase;
     font-weight: 1000;
     text-align: center;
@@ -68,11 +68,12 @@ html{
 
 .our-team{
     position: relative;
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
     display: flex;
     flex-wrap:wrap;
     align-items: center;
     justify-content: center;
+    background-color: #a8281a;
 }
 
 .team-cont-head{
@@ -106,8 +107,8 @@ html{
 
 .card{
     position: relative;
-    width: 20rem;
-    height: 25rem;
+    width: 22rem;
+    height: 32rem;
     background: #fff;
     overflow: hidden;
     border-radius: 1rem;
@@ -180,7 +181,7 @@ html{
     color: black;
     font-weight: 500;
     font-family: sans-serif;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     padding: .2rem;
     font-weight: 600;
 
@@ -191,9 +192,8 @@ html{
     color: rgb(241, 86, 86);
     font-weight: 500;
     font-family: sans-serif;
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     text-align: center;
-    padding: .2rem;
 }
 
 
@@ -203,20 +203,19 @@ html{
     font-weight: 600;
     font-style: italic;
     text-transform: uppercase;
-    font-size: 1.1rem;
-    padding: auto;
+    font-size: 1.4rem;
     text-align: center;
 
 }
 
 .content-team h6{
     position: relative;
+    top: -.1rem;
     color: rgb(10, 63, 160);
     font-weight:300;
     font-family: sans-serif;
     font-size: 1.2rem; 
-    text-decoration: none;
-     text-align: center;
+    text-align: center;
 }
 
 @media(max-width:80rem){

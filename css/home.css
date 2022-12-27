@@ -288,7 +288,7 @@ header label {
     top: -.7rem;
     font-size: 1.4rem;
     color: #780206;
-    text-transform: capitalize;
+    text-transform: uppercase;
 }
 .welcome-img p{
     position: relative;
