@@ -227,7 +227,7 @@ header label {
 
 .welcome-to h1{
     position: relative;
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: black;
     font-weight: 600;
     top: 1rem;
@@ -238,7 +238,7 @@ header label {
 
 .welcome-to h1::after{
     content: "SAFEZONE-Active Humanity Foundation";
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: #a8281a;
 
 }
@@ -274,8 +274,8 @@ header label {
 
 .welcome-img i{
     position: relative;
-    top: 1rem;
-    font-size: 2rem;
+    top: .5rem;
+    font-size: 1.5rem;
     left: 1rem;
     color: #a8281a;
 
@@ -284,18 +284,18 @@ header label {
 
 .welcome-img h2{
     position: relative;
-    left: 3.7rem ;
+    left: 3rem ;
     top: -.7rem;
-    font-size: 2rem;
+    font-size: 1.4rem;
     color: #780206;
-    text-transform: capitalize;
+    text-transform: uppercase;
 }
 .welcome-img p{
     position: relative;
     left: .5rem ;
     top: -.6rem; 
     letter-spacing: .03rem;
-    font-size: 1.7rem;
+    font-size: 1.2rem;
     font-weight: 500;
     font-family: sans-serif;
     word-spacing: .2rem;
@@ -312,7 +312,7 @@ header label {
 
 .event h1{
     position: relative;
-    font-size: 2rem;
+    font-size: 1.6rem;
     color: black;
     font-weight: 600;
     top: 1rem;
@@ -323,7 +323,7 @@ header label {
 
 .event h1::after{
     content: "EVENT";
-    font-size: 2rem;
+    font-size: 1.6rem;
     color: #a8281a;
 }
 
@@ -358,7 +358,7 @@ header label {
 .event-img h2{
     position: relative;
     left: 1rem ;
-    font-size: 2rem;
+    font-size: 1.4rem;
     color: #780206;
     text-transform: capitalize;
 }
@@ -367,7 +367,7 @@ header label {
     position: relative;
     left: .7rem ;
     letter-spacing: .02rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 400;
     font-family: sans-serif;
     word-spacing: .2rem;
@@ -375,7 +375,6 @@ header label {
 
 .event-img p a{
     color: rgb(41, 41, 216);
-    font-size: 1.2;
 }
 
 /**************************
@@ -388,7 +387,7 @@ header label {
 
 .about h1{
     position: relative;
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: black;
     font-weight: 600;
     top: 2rem;
@@ -397,7 +396,7 @@ header label {
 
 .about h1::after{
     content: "SAHF";
-    font-size: 2rem;
+    font-size: 1.6rem;
     color: #a8281a;
 }
 
@@ -432,7 +431,7 @@ header label {
 .about-img h2{
     position: relative;
     text-align: center;
-    font-size: 1.9rem;
+    font-size: 1.4rem;
     color: #780206;
     text-transform: capitalize;
 }
@@ -441,7 +440,7 @@ header label {
     position: relative;
     left: .7rem ;
     letter-spacing: .02rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 400;
     font-family: sans-serif;
     word-spacing: .2rem;
@@ -479,7 +478,7 @@ header label {
     position: absolute;
     left: .5rem;
     top: .5rem;
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     font-family: sans-serif;
     color: #ad3719;
 }
@@ -488,7 +487,7 @@ header label {
     position: absolute;
     left: 1rem;
     top: 2rem;
-    font-size: 1.7rem;
+    font-size: 1.6rem;
     font-family: sans-serif;
     color: black;
 }
@@ -497,7 +496,7 @@ header label {
     position: absolute;
     left: 1.2rem;
     top: 4.5rem;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-family: sans-serif;
     color:rgb(177, 133, 133);
 }
@@ -515,7 +514,7 @@ header label {
     text-decoration: none;
     display: flex;
     text-align: center;
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     color: aliceblue;
     background-color: #780206;
     border-radius: .5rem;
@@ -530,7 +529,7 @@ header label {
     top: -13rem;
     left: 50%;
     height: 6.5rem;
-    width: 15rem;
+    width: 14rem;
     background-color: black;
     opacity: .7 ;
 }    
@@ -542,7 +541,7 @@ header label {
     top: -19.5rem;
     left: 68%;
     height: 6.5rem;
-    width: 15rem;
+    width: 14rem;
     background-color: black;
     opacity: .7;
 }    
@@ -553,7 +552,7 @@ header label {
     top: -17.5rem;
     left: 50%;
     height: 6.8rem;
-    width: 16rem;
+    width: 14rem;
     background-color: black;
     opacity: .7 ;
 }
@@ -563,7 +562,7 @@ header label {
     top: -24rem;
     left: 68%;
     height: 6.8rem;
-    width: 16rem;
+    width: 14rem;
     background-color: black;
     opacity: .7;
 }
@@ -573,7 +572,7 @@ header label {
     top: 1rem;
     left: 27%;
     color: rgb(255, 255, 255);
-    font-size: 1.8rem;
+    font-size: 1.5rem;
 }
     
 .countershow p{
@@ -581,14 +580,14 @@ header label {
     display: flex;
     top: 3.5rem;
     color: rgb(255, 255, 255);
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     left: 12%;
     font-weight: 600;
 }
     
 .countershow i{
     position: absolute;
-    font-size: 2.1rem;
+    font-size: 2rem;
     top: 1rem;
     left: 1rem;
     color: #a31808;
@@ -606,7 +605,7 @@ header label {
 
 .video h1{
     position: relative;
-    font-size: 2.1rem;
+    font-size: 1.8rem;
     color: black;
     font-weight: 600;
     top: 1rem;
@@ -658,7 +657,7 @@ header label {
     position: relative;
     left: 3rem ;
     top: .3rem;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     color: #780206;
     text-transform: capitalize;
 }
@@ -673,7 +672,7 @@ header label {
     background-color: #151c26;
     border-top: .1rem solid rgb(206, 133, 23);
     border-bottom: .1rem solid rgb(206, 133, 23);
-    height: 25rem;
+    height: 18rem;
 
 }
 
@@ -753,7 +752,7 @@ header label {
 
 .socil-icone{
     position: relative;
-    top: 5rem;
+    top: -1rem;
 }
 
 .socil-icone a i{
@@ -780,10 +779,10 @@ header label {
 
 .footer h6{
     position: relative;
-    font-size: 1.7rem;
+    font-size: 1.1rem;
     color: white;
     font-weight: 500;
-    top: 6.5rem;
+    top: -.3rem;
     text-align: center;
     font-style: italic;
     letter-spacing: .2rem;
@@ -795,7 +794,7 @@ header label {
     content: "";
     height: .1rem;width: 100%;
     background-color: #fff;
-    bottom: -6rem;
+    bottom: 1rem;
     opacity: .4;
   
 
@@ -946,7 +945,7 @@ header label {
       /*******   footer *********/
 
     .footer{
-        height: 30rem
+        height: 23rem
     }
 
     .footer-col{
@@ -1060,7 +1059,7 @@ header label {
      /*******   footer *********/
 
      .footer{
-        height: 45rem;
+        height: 39rem;
     }
 
     .socil-icone{
