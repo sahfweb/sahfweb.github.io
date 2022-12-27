@@ -50,13 +50,13 @@ html{
 
 .event-all{
     position: relative;
-    height: 80rem;
+    height: 160rem;
 }
 .past-cont{
     position: relative;
     display: flex;
     top: 5rem;
-    height: 33rem;
+    height: 36rem;
     flex-wrap: nowrap;
     justify-content: center;
     margin: 2rem 2rem 3rem 2rem;
@@ -168,12 +168,12 @@ html{
 
     .event-all{
         position: relative;
-        height: 100rem;
+        height: 260rem;
     }
     
     .past-cont{
         top: 4rem;
-        height: 45rem;
+        height: 62rem;
         flex-wrap: wrap;
     }
 
