@@ -308,11 +308,11 @@ html{
 
     .event-contall h3{
         font-size: 1.6rem;
-        top: -3rem;
+        top: -3.5rem;
     }
 
-    .event-contall h3{
-        top: -1rem
+    .event-contall P{
+        top: -2.5rem
     }
 
     /**** CAMPAIGN **/
@@ -333,11 +333,11 @@ html{
 
     .campaign-contall h3{
         font-size: 1.6rem;
-        top: -3rem;
+        top: -3.5rem;
     }
 
-    .campaign-contall h3{
-        top: -1rem
+    .campaign-contall P{
+        top: -2.5rem
     }
 
    
@@ -364,7 +364,7 @@ html{
     }
 
     .event-contall p{
-        top: -1rem;
+        top: -2.5rem;
     }
 
      /**** CAMPAIGN **/
@@ -384,7 +384,7 @@ html{
     }
 
     .campaign-contall p{
-        top: -1rem;
+        top: -2.5rem;
     }
     
 }
