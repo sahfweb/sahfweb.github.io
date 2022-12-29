@@ -301,6 +301,11 @@ header label {
     word-spacing: .2rem;
 }
 
+.highlight{
+    background-color: rgba(214, 149, 8, 0.8);
+    font-size: 1.3rem;
+}
+
 
 /* ***********************
 ******  EVENT ************/
