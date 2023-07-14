@@ -1,4 +1,4 @@
-const carousel = document.querySelector('.carousel');
+/***const carousel = document.querySelector('.carousel');
 firstImg = carousel.querySelectorAll("img")[0];
 arrOwIcons = document.querySelectorAll('.wrapper i');
 
@@ -33,7 +33,34 @@ const dragStop = () =>{
 
 carousel.addEventListener("mousedown", dragStart);
 carousel.addEventListener("mousemove", dragging);
-carousel.addEventListener("mouseup", dragStop);
+carousel.addEventListener("mouseup", dragStop);  ***/
+
+
+
+$(document).ready(function(){
+    $( ' #owl_car1 .owl-carousel').owlCarousel({
+        items: 4,
+        margin:10,
+        loop:true,
+        nav: true,
+        autoplay:true,
+        autoplayTimeout:5000,
+        dots:false,
+        responsive:{
+            0:{
+                items:1,
+                nav:false
+            },
+            768:{
+                items:1,
+                nav:true
+            }
+        }
+
+    });
+    
+})
+
 
 
 
