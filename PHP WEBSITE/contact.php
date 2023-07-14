@@ -1,0 +1,126 @@
+ <?php include 'redirect.php' ?>; 
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="icon" href="images1/logo.png" type="image/icon type">
+    <link rel="stylesheet" href="css/contactus.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+
+<body>
+
+
+    <!-- Header include here -->
+    <?php include 'header.php'; ?>
+
+    <!-- Contact page start here -->
+
+
+    <!--contactus-->
+    <section class="contactus-about">
+        <div class="allpagtop-img">
+            <img src="images1/homeimg/homeimg5.1.jpg" alt="">
+            <h1> Contact Us.</h1>
+        </div>
+        <div class="contact">
+            <div class="contact-info">
+                <div class="contact-top">
+                    <div class="contact-men-top">
+                        <h4>Content Writing Department</h4>
+                        <p>Manage content of website, documents with accordence of Law</p> 
+                            <p>If you have any related Query. Contact us at,
+                        </p>
+                        <a href="mailto:sahfofficial.cw@gmail.com"><i class="fa-solid fa-envelope"></i> sahfofficial.cw@gmail.com</a> <br>
+
+                        <h4>Department of Information Technology</h4>
+                        <p> IT Department manages Data, website, social media and other digital contents.</p>
+                            <p>If you have any related Query. Contact us at,
+                        </p>
+                        <a href="mailto:sahfofficial.it@gmail.com"> <i class="fa-solid fa-envelope"> </i> sahfofficial.it@gmail.com</a><br>
+
+                        <h4>Graphics & Design Department</h4>
+                        <p> Graphics Department manages graphics and Design of documents</p>
+                        <p>If you have any related Query. Contact us at,</p>
+                        <a href="mailto:sahfofficial.gd@gmail.com"> <i class="fa-solid fa-envelope"></i> sahfofficial.gd@gmail.com</a> <br>
+
+                        <h4>Finance Department</h4>
+                        <p>Finance Department deals with finance of organisation</p>
+                        <p>If you have any related Query. Contact us at,</p>
+                        <a href="mailto:sahfofficial.fb@gmail.com"> <i class="fa-solid fa-envelope"></i> sahfofficial.fd@gmail.com</a><br>
+
+                       
+                    </div>
+                </div>
+                <div class="contact-top">
+                    <div class="contact-men-top">
+                      
+                      <h4>Public Relations Department</h4>
+                      <p>Public Relation Department plays a vital role in 
+                          Connecting our organisation with a common person. </p>
+                      <p>If you have any related Query. Contact us at,</p>
+                      <a href="mailto:sahfofficial.pr@gmail.com"> <i class="fa-solid fa-envelope"></i> sahfofficial.pr@gmail.com</a><br><br><br>
+
+                      <h4>Sponsorship Department</h4>
+                      <p>Deals with sponsorship for various programs of organisation</p>
+                          <p>If you have any related Query. Contact us at,</p>
+                      <a href="mailto:sahfofficial.sp@gmail.com"> <i class="fa-solid fa-envelope"></i> sahfofficial.sp@gmail.com</a> <br><br><br>
+
+                      <h4>Department of Law & Policy</h4>
+                      <p>Department of Law & Policy ensures that everything at SAHF goes without any legal hassle and 
+                          issues. It ensures that all the works of the Organisation are in conformity of the law 
+                          of the land. It advises and counsels the Organisation
+                      </p>
+                      <p>If you have any related Query. Contact us at,</p>
+                      <a href="mailto:sahfofficial.legal@gmail.com"> <i class="fa-solid fa-envelope"></i> sahfofficial.legal@gmail.com</a>
+                      <br><br>
+                       <!-- <h3>For Any Suggestion And Query, </h3>
+                        <form class="input-form">
+                           <input type="text" id="name" placeholder="Your Name" required>
+                           <input type="email" id="email" placeholder="Email Id" required>
+                           <input type="text" id="phone" placeholder="Phone No." required>
+                           <textarea id="message"  rows="5" placeholder="Your Message"></textarea>
+                           <button type="submit" onclick="fun()">Send</button>    
+                        </form> -->
+                    </div> 
+                      <!--<div  class="contact-men-depa">
+                        <div class="contact-addr">
+                            <H3> VISIT US HERE</H3> -->
+                          <!-- <h5>Add-  </h5> 
+                            <H6>"SAHF" NEAR- <br>
+                                Dharam Talkis Bairia <br>
+                                Dist- Ballia ( UP ) <br>
+                                PIN-277201 
+                            </H6>
+                        </div>   --->
+                    </div> 
+                </div>
+            </div>
+        </div> 
+              
+        <div class="google-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12294.444916509088!2d84.
+            46830558327459!3d25.773960679061844!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8e8eae7fc6bc2f88!
+            2sSAFEZONE-ActiveHumanityFoundation!5e1!3m2!1sen!2sin!4v1669904716597!5m2!1sen!2sin" width="100%" height="100%" style="border:0;"
+             allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+
+    <!-- footer included here  -->
+
+    <?php include 'footer.php'; ?>
+
+    <script>
+        function fun() {
+            alert('technical error...')
+        }
+    </script>
+
+</body>
+
+</html>
