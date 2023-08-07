@@ -129,15 +129,7 @@
         <div class='event-all'>
 
             <?php
-
-
-
-
-
             include "shared/connection.php";
-
-
-
             $sql_cursor = mysqli_query($conn, "SELECT * FROM notice WHERE notice.noticeType = 'OPEN' ORDER BY noticeId DESC");
 
 
@@ -195,30 +187,32 @@
 
                         <div class='date'><p>$noticeDate <p></div>
 
-                        <div><p>";
-                        if ($dateDifference <= 30) {
-                            echo "<span style='color: red; font-weight: bold;'> NEW</span>
-                        }<a href='$noticeFile'>$noticeDes</a><p></div>
+                        <div><p><a href='$noticeFile'>$noticeDes</a>
+                        ";
+                    if ($dateDifference <= 30) {
+                            echo "<img src='shared/new.png' style='height: 23px; width : 41px'>";
+                        };
+                    echo "<p></div>
 
                         <div><hr></div>
 
-                        <div><hr></div>
-
-                        
+                        <div><hr></div>                      
 
                         
 
                     ";
 
                 }
-
             }
+
+            
 
             ?>
 
 
 
         </div>
+        
 
         </div>
 
@@ -240,6 +234,6 @@
 
     <?php include 'footer.php'; ?>
 
-
+</body>
 
 </html>
