@@ -1,31 +1,19 @@
 <?php
-if (!empty($_SESSION['userdata']["adminId"])) {
-    require_once __DIR__ . '/dashboard.php';
-} else {
-    session_start();
-}
-
-$profileName = $_SESSION['userdata']["name"];
-$email = $_SESSION['userdata']["username"];
-$adminId = $_SESSION["adminId"];
-
-
-if (!isset($_SESSION['login_status'])) {
+session_start();
+if (!isset($_SESSION['login_status']) || !$_SESSION['login_status']) {
     echo "Unauthorised Attempt!";
     die;
 }
 
-if ($_SESSION['login_status'] == false) {
-    echo "Illegal Access";
-    die;
-}
-
-
+$msg= $_SESSION['msg'];
+$profileName = $_SESSION['userdata']["name"];
+$email = $_SESSION['userdata']["username"];
+$adminId = $_SESSION["adminId"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <!-- Include CSS and other head elements -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
         body {
@@ -33,13 +21,6 @@ if ($_SESSION['login_status'] == false) {
         }
     </style>
 </head>
-<?php
-if (isset($_GET['msg'])) {
-    $msg = $_GET['msg'];
-} else {
-    $msg = "";
-}
-?>
 
 <body>
     <div class="d-flex justify-content-center align-items-center mx-auto border border-primary bg-dark" style="width: 80vw; min-height: 100vh;">
@@ -55,10 +36,14 @@ if (isset($_GET['msg'])) {
                 <div class="card"><a href="#addNotice" type="button" class="btn btn-outline-primary" onclick="function5()">Add Notice</a></div>
                 <div class="card"><a href="#viewNotice" type="button" class="btn btn-outline-primary" onclick="function6()">View Notice</a></div>
                 <div class="card"><a href="#addTeam" type="button" class="btn btn-outline-primary" onclick="function7()">Add Team</a></div>
+                <div class="card"><a href="#changePass" type="button" class="btn btn-outline-primary" onclick="function8()">Change Password</a></div>
                 <div class="card"><a href="logout.php" type="button" class="btn btn-outline-danger">Logout</a></div>
             </div>
+            
+            
             <div id="createEvent" class="border bg-secondary border-primary p-3 mb-2 justify-content-center align-items-center col-lg-9">
-                <h3 class="text-lg-left text-white m-4 d-inline-block align-middle">CREATE EVENT</h3>
+                <h3 class="text-lg-left text-white m-2 d-inline-block align-middle">CREATE EVENT</h3>
+                <p class="text-lg-left text-white m-2 d-inline-block align-middle"><?php echo $msg;?></p>
                 <div class="col-lg-12 mt-4 justify-content-center align-items-center">
                     <form action="createevent.php" class="bg-info p-3" enctype="multipart/form-data" method="post">
                         <div class="card bg-info mb-4">
@@ -158,36 +143,99 @@ if (isset($_GET['msg'])) {
         </div>
     </div>
     <br>
-    <div id="viewEvent" class=" border border-primary p-3 mb-2 bg-secondary text-white align-self-stretch" style="display: none; max-width:65vw;">
-        <table class='table table-striped table-bordered  table-hover table-primary text-center align-middle'>
+<style>
+    /* Additional CSS styles for better UI/UX */
+    #viewEvent {
+        max-width: 65vw;
+    }
+
+    .table-container {
+        overflow-x: auto;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    table thead th {
+        vertical-align: middle;
+    }
+
+    table tbody td {
+        vertical-align: middle;
+    }
+
+    .event-image {
+        max-width: 100%; /* Allow the image to adjust its width */
+        max-height: 150px; /* Fixed height for the image */
+        object-fit: contain; /* Preserve aspect ratio */
+    }
+
+    .description-cell {
+        max-height: 150px; /* Max height in pixels */
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .show-more-btn,
+    .show-less-btn {
+        cursor: pointer;
+        color: blue;
+        text-decoration: underline;
+    }
+
+    .show-less-btn {
+        display: none;
+    }
+</style>
+
+
+<div id="viewEvent" class="border border-primary p-3 mb-2 bg-secondary text-white align-self-stretch" style="display: none;">
+     <h3 class="text-lg-left text-white m-2 d-inline-block align-middle">VIEW EVENT</h3>
+    <p class="text-lg-left text-white m-2 d-inline-block align-middle"><?php echo $msg;?></p>
+    <div class="table-container">
+        <table class="table table-striped table-bordered table-hover table-primary text-center align-middle">
             <thead>
                 <tr>
-                    <th scope='col' rowspan="2">EVENT ID</th>
-                    <th scope='col'>DATE</th>
-                    <th scope='col'>MONTH YEAR</th>
-                    <th scope='col'>HEAD</th>
-                    <th scope='col'>TIME</th>
-                    <th scope='col'>LOCATION</th>
-                    <th scope='col' rowspan="2">DESCRIPTION</th>
-                </tr>
-                <tr>
-                    <th scope='col'>HEADING</th>
-
-                    <th scope='col' colspan="2">IMAGE</th>
-                    <th scope='col'>TYPE</th>
-                    <th scope='col'>ADDED BY</th>
-                </tr>
+                        <th scope="col">EVENT ID</th>
+                        <th scope="col">DATE</th>
+                        <th scope="col">MONTH YEAR</th>
+                        <th scope="col">HEAD</th>
+                        <th scope="col">TIME</th>
+                        <th scope="col">LOCATION</th>
+                        <th scope="col">HEADING</th>
+                        <th scope="col">DESCRIPTION</th>
+                        <th scope="col">TYPE</th>
+                        <th scope="col">ADDED BY</th>
+                        <th scope="col">IMAGE</th>
+                        <th scope="col">ACTIONS</th>
+                    </tr>
             </thead>
             <tbody>
-
                 <?php
                 include "../shared/connection.php";
 
-                $sql_cursor = mysqli_query($conn, "SELECT * FROM event ORDER BY eventId DESC");
+                if (isset($_POST['delete_event'])) {
+                    $delete_id = $_POST['delete_event'];
+                    $delete_query = "DELETE FROM event WHERE eventId = $delete_id";
+                    $delete_result = mysqli_query($conn, $delete_query);
 
+                    if ($delete_result) {
+                        echo "<script>alert('Event with ID $delete_id is deleted!');</script>";
+                    } else {
+                        echo "<script>alert('Error: Unable to delete event!');</script>";
+                    }
+                }
 
+                $sql_query = "SELECT event.eventId, event.image, event.date, event.monthYear, event.head, event.time, event.location, 
+                                    event.heading, event.description, event.type, IFNULL(admin.name, '') AS addedBy
+                            FROM event
+                            LEFT JOIN admin ON event.addedBy = admin.adminId
+                            ORDER BY event.eventId DESC";
 
-                while ($row = mysqli_fetch_assoc($sql_cursor)) {
+               $sql_cursor = mysqli_query($conn, $sql_query);
+
+while ($row = mysqli_fetch_assoc($sql_cursor)) {
                     $eventId = $row['eventId'];
                     $image = $row['image'];
                     $date = $row['date'];
@@ -198,34 +246,48 @@ if (isset($_GET['msg'])) {
                     $heading = $row['heading'];
                     $description = $row['description'];
                     $type = $row['type'];
-                    $admin = $row['addedBy'];
-                    $row2 = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM admin WHERE adminId = $admin"));
-                    $addedBy = $row2['name'];
+                    $addedBy = $row['addedBy'];
 
-                    echo  "<tr>
-                            <th scope=/row' rowspan='2'>$eventId</th>
-                            <td>$date</td>
-                            <td>$monthYear</td>
-                            <td>$head</td>
-                            <td>$time</td>
-                            <td>$location</td>
-                            <td rowspan='2'>$description</td>
-                            </tr><tr>                            
-                            <td>$heading</td>
-                            <td colspan='2'><img src='../$image'class='img-thumbnail rounded'></td>
-                            <td>$type</td>
-                            <td>$addedBy</td>
-                        </tr>";
+
+    echo  "<tr>
+                <td>$eventId</td>
+                <td>$date</td>
+                <td>$monthYear</td>
+                <td>$head</td>
+                <td>$time</td>
+                <td>$location</td>
+                <td>$heading</td>
+                <td class='description-cell'>
+    <div class='description-content'>
+        <?php echo $description; ?>
+    </div>
+    <a href='#' onclick='showDescriptionPopup($eventId)'>Show More</a>
+</td>
+                <td>$type</td>
+                <td>$addedBy</td>
+                <td><img src='../$image' class='event-image img-thumbnail rounded' style='max-width: 100px; max-height: 70px;'></td>
+                <td>
+                                    <form method='post' onsubmit='return confirm(\"Are you sure you want to delete this event?\")'>
+                                        <input type='hidden' name='delete_event' value='$eventId'>
+                                        <button type='submit' class='delete-btn btn btn-danger btn-sm'>&times; Delete</button>
+                                    </form>
+                                </td>
+                            </tr>";
                 }
                 ?>
             </tbody>
         </table>
     </div>
+</div>
+
+
+
     <br>
     <div id="addImg" class="border border-primary p-3 mb-2 bg-secondary text-white" style="display: none;">
         <form action="addImg.php" class="bg-info p-3" enctype="multipart/form-data" method="post">
             <h3 class="text-center text-white">Create event</h3>
-            <p><?php echo "$msg" ?></p>
+            <p class="text-lg-left text-white m-4 d-inline-block align-middle"><?php echo $msg;?></p>
+            
             <input class="mt-2 form-control text-danger" name="imgalt" type="name" placeholder="Enter Image Alternative" required>
             <select class="mt-2 form-control text-danger form-select" aria-label="type" name="imgtype" id="imgtype">
                 <option value="EDUCATION" selected>EDUCATION</option>
@@ -240,51 +302,73 @@ if (isset($_GET['msg'])) {
         </form>
     </div>
     <br>
-    <div id="viewImg" class=" border border-primary p-3 mb-2 bg-secondary text-white" style="display: none;">
-        <table class='table table-striped'>
-            <thead class='thead-dark'>
-                <tr>
-                    <th scope='col'>IMAGE ID</th>
-                    <th scope='col'>ALT TEXT</th>
-                    <th scope='col'>TYPE</th>
-                    <th scope='col'>ADDDED BY</th>
-                    <th scope='col'>IMAGE</th>
-                </tr>
-            </thead>
-            <tbody>
+    <div id="viewImg" class="border border-primary p-3 mb-2 bg-secondary text-white" style="display: none;">
+         <h3 class="text-lg-left text-white m-2 d-inline-block align-middle">CREATE IMAGE</h3>
+        <p class="text-lg-left text-white m-2 d-inline-block align-middle"><?php echo $msg;?></p>
+    <table class='table table-striped'>
+        <thead class='thead-dark'>
+            <tr>
+                <th scope='col'>IMAGE ID</th>
+                <th scope='col'>TYPE</th>
+                <th scope='col'>ALT TEXT</th>
+                <th scope='col'>ADDED BY</th>
+                <th scope='col'>IMAGE</th>
+                <th scope='col'>ACTIONS</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            include "../shared/connection.php";
 
-                <?php
-                include "../shared/connection.php";
+            if (isset($_POST['delete_image'])) {
+                $delete_id = $_POST['delete_image'];
+                $delete_query = "DELETE FROM gallery WHERE imgId = $delete_id";
+                $delete_result = mysqli_query($conn, $delete_query);
 
-                $sql_cursor = mysqli_query($conn, "SELECT * FROM gallery ORDER BY imgId DESC");
+                if ($delete_result) {
+                    echo "<script>alert('Image with ID $delete_id is deleted!');</script>";
+                } else {
+                    echo "<script>alert('Error: Unable to delete image!');</script>";
+                }
+            }
 
+            $sql_query = "SELECT g.imgId, g.image, g.type, g.alt, a.name AS addedBy
+                          FROM gallery g
+                          LEFT JOIN admin a ON g.addedBy = a.adminId
+                          ORDER BY g.imgId DESC";
 
+            $sql_cursor = mysqli_query($conn, $sql_query);
 
-                while ($row = mysqli_fetch_assoc($sql_cursor)) {
-                    $imgId = $row['imgId'];
-                    $image = $row['image'];
-                    $imgtype = $row['type'];
-                    $alt = $row['alt'];
-                    $admin = $row['addedBy'];
-                    $row2 = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM admin WHERE adminId = $admin"));
-                    $addedBy = $row2['name'];
+            while ($row = mysqli_fetch_assoc($sql_cursor)) {
+                $imgId = $row['imgId'];
+                $image = $row['image'];
+                $imgtype = $row['type'];
+                $alt = $row['alt'];
+                $addedBy = $row['addedBy'];
 
-                    echo  "<tr>
-                            <th scope=/row'>$imgId</th>
+                echo  "<tr>
+                            <th scope='row'>$imgId</th>
                             <td>$imgtype</td>
                             <td>$alt</td>
                             <td>$addedBy</td>
-                            <td><img src='../$image'class='img-thumbnail rounded' style = 'max-width : 30%;'></td>
-                            
+                            <td><img src='../$image' class='img-thumbnail rounded' style='max-width: 30%;'></td>
+                            <td>
+                                <form method='post' onsubmit='return confirm(\"Are you sure you want to delete this image?\")'>
+                                    <input type='hidden' name='delete_image' value='$imgId'>
+                                    <button type='submit' class='delete-btn btn btn-danger btn-sm'>&times; Delete</button>
+                                </form>
+                            </td>
                         </tr>";
-                }
-                ?>
-            </tbody>
-        </table>
-    </div>
+            }
+            ?>
+        </tbody>
+    </table>
+</div>
+
     <br>
     <div id="addNotice" class="border border-primary  p-3 mb-2  col-lg-9 bg-secondary text-black" style="display: none;">
-        <h3 class="text-center text-white mb-5 p-3">Create Notice/Circular</h3>
+        <h3 class="text-center text-white mb-2 p-3">Create Notice/Circular</h3>
+        <p class="text-lg-left text-white m-2 d-inline-block align-middle"><?php echo $msg;?></p>
         <div class="col-lg-12 mt-4 justify-content-center align-items-center">
             <form action="addNotice.php" class="bg-info p-3" enctype="multipart/form-data" method="post">
                 <p><?php echo "$msg" ?></p>
@@ -344,51 +428,80 @@ if (isset($_GET['msg'])) {
     </div>
     <br>
     <div id="viewNotice" class="border border-primary  p-3 mb-2  col-lg-9 bg-secondary text-white" style="display: none;">
-        <h3 class="text-center text-white mb-5 p-3">User Notice/Circular</h3>
-        <table class='table table-striped table-bordered  table-hover table-primary text-center align-middle'>
-            <thead>
-                <tr>
-                    <th scope='col' class='col-sm-2'>ID</th>
-                    <th scope='col' class='col-sm-2'>DATE</th>
-                    <th scope='col' class='col-sm-4'>DESCRIPTION</th>
-                    <th scope='col' class='col-sm-2'>TYPE</th>
-                    <th scope='col' class='col-sm-2'>ADDED BY</th>
-                </tr>
-            </thead>
-            <tbody>
+        <h3 class="text-center text-white mb-2 p-3">User Notice/Circular</h3>
+        <p class="text-lg-left text-white m-2 d-inline-block align-middle"><?php echo $msg;?></p>
+          <table class='table table-striped table-bordered table-hover table-primary text-center align-middle'>
+    <thead>
+        <tr>
+            <th scope='col' class='col-sm-2'>ID</th>
+            <th scope='col' class='col-sm-2'>DATE</th>
+            <th scope='col' class='col-sm-4'>DESCRIPTION</th>
+            <th scope='col' class='col-sm-2'>TYPE</th>
+            <th scope='col' class='col-sm-2'>ADDED BY</th>
+            <th scope='col'>ACTION</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        include "../shared/connection.php";
 
-                <?php
-                include "../shared/connection.php";
+        if (isset($_POST['delete_notice'])) {
+    // Get the notice ID to be deleted
+    $delete_id = $_POST['delete_notice'];
 
-                $sql_cursor = mysqli_query($conn, "SELECT * FROM notice WHERE noticeType = 'USER' ORDER BY noticeId DESC");
+    // Perform the deletion query
+    $sql_delete = "DELETE FROM notice WHERE noticeId = $delete_id";
+    if (mysqli_query($conn, $sql_delete)) {
+        // Deletion successful
+        echo '<div class="alert alert-success">Notice deleted successfully!</div>';
+        // You can also perform any other actions after successful deletion if needed.
+    } else {
+        // Deletion failed
+        echo '<div class="alert alert-danger">Error: Unable to delete notice.</div>';
+        // You can add additional error handling or logging here if needed.
+    }
+}
 
 
+        $sql_query = "SELECT notice.noticeId, notice.noticeDate, notice.noticeDes, notice.noticeFile, notice.noticeType, 
+                     IFNULL(admin.name, '') AS addedBy
+              FROM notice
+              LEFT JOIN admin ON notice.addedBy = admin.adminId
+              ORDER BY notice.noticeId DESC";
 
-                while ($row = mysqli_fetch_assoc($sql_cursor)) {
-                    $noticeId = $row['noticeId'];
-                    $noticeDate = $row['noticeDate'];
-                    $noticeDes = $row['noticeDes'];
-                    $noticeFile = $row['noticeFile'];
-                    $noticeType = $row['noticeType'];
-                    $admin = $row['addedBy'];
-                    $row2 = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM admin WHERE adminId = $admin"));
-                    $addedBy = $row2['name'];
+        $sql_cursor = mysqli_query($conn, $sql_query);
 
-                    echo  "<tr>
-                            <th class='col-sm-2'>$noticeId</th>
-                            <td class='col-sm-2'>$noticeDate</td>
-                            <td class='col-sm-4'><a href='../$noticeFile'>$noticeDes</a></td>
-                            <td class='col-sm-2'>$noticeType</td>
-                            <td class='col-sm-2'>$addedBy</td>                            
-                        </tr>";
-                }
-                ?>
-            </tbody>
-        </table>
+        while ($row = mysqli_fetch_assoc($sql_cursor)) {
+            $noticeId = $row['noticeId'];
+            $noticeDate = $row['noticeDate'];
+            $noticeDes = $row['noticeDes'];
+            $noticeFile = $row['noticeFile'];
+            $noticeType = $row['noticeType'];
+            $addedBy = $row['addedBy'];
+
+            echo  "<tr>
+                    <th class='col-sm-2'>$noticeId</th>
+                    <td class='col-sm-2'>$noticeDate</td>
+                    <td class='col-sm-4'><a href='../$noticeFile'>$noticeDes</a></td>
+                    <td class='col-sm-2'>$noticeType</td>
+                    <td class='col-sm-2'>$addedBy</td>
+                    <td>
+                        <form method='post' onsubmit='return confirm(\"Are you sure you want to delete this notice?\");'>
+                            <input type='hidden' name='delete_notice' value='$noticeId'>
+                            <button type='submit' class='btn btn-danger'>Delete</button>
+                        </form>
+                    </td>
+                </tr>";
+        }
+        ?>
+    </tbody>
+</table>
+
     </div>
     <br>
     <div id="addTeam" class="border border-primary  p-3 mb-2  col-lg-9 bg-secondary text-black" style="display: none;">
-        <h3 class="text-center text-white mb-5 p-3">Add Team Member</h3>
+        <h3 class="text-center text-white mb-2">Add Team Member</h3>
+        <p class="text-lg-left text-white m-2 d-inline-block align-middle"><?php echo $msg;?></p>
         <div class="col-lg-12 mt-4 justify-content-center align-items-center">
             <form action="addTeam.php" class="bg-info p-3" enctype="multipart/form-data" method="post">
                 <p><?php echo "$msg" ?></p>
@@ -479,11 +592,51 @@ if (isset($_GET['msg'])) {
         </div>
     </div>
     <br>
+    <div id="changePass" class="border border-primary  p-3 mb-2  col-lg-9 bg-secondary text-white" style="display : none;">
+                <h3 class="text-center text-white mb-5 p-3">Update Password</h3>
+                <p class="text-lg-left text-white m-4 d-inline-block align-middle"><?php echo $msg;?></p>
+                <p><?php echo "$msg" ?></p>
+                <form action="updatePass.php" class="bg-info p-3 m-4" enctype="multipart/form-data" method="post" onsubmit="return validate()">
+                    <p><?php echo "$msg" ?></p>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <p class="mb-0">Enter Old Password</p>
+                        </div>
+                        <div class="col-sm-7">
+                            <p class="text-dark mb-0"><input required class="form-control mt-2" type="password" placeholder="Enter Password" name="upass">
+                            </p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <p class="mb-0">Enter New Password</p>
+                        </div>
+                        <div class="col-sm-7">
+                            <p class="text-dark mb-0"><input required class="form-control mt-2" type="password" placeholder="Enter Password" name="upass1">
+                            </p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <p class="mb-0">Confirm New Password</p>
+                        </div>
+                        <div class="col-sm-7">
+                            <p class="text-dark mb-0"><input required class="form-control mt-2" type="password" placeholder="Enter Password" name="upass2">
+                            </p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="text-center">
+                        <button class="btn btn-danger mt-3">Update Now</button>
+                    </div>
+                </form>
+            </div>
+            <br>
 
     </div>
-
-
-
     </div>
 
 </body>
@@ -497,6 +650,7 @@ if (isset($_GET['msg'])) {
             document.getElementById('addNotice').style.display = 'none';
             document.getElementById('viewNotice').style.display = 'none';
             document.getElementById('addTeam').style.display = 'none';
+            document.getElementById('changePass').style.display = 'none';
         }
     };
 
@@ -509,6 +663,7 @@ if (isset($_GET['msg'])) {
             document.getElementById('addNotice').style.display = 'none';
             document.getElementById('viewNotice').style.display = 'none';
             document.getElementById('addTeam').style.display = 'none';
+            document.getElementById('changePass').style.display = 'none';
         }
     };
 
@@ -521,6 +676,7 @@ if (isset($_GET['msg'])) {
             document.getElementById('addNotice').style.display = 'none';
             document.getElementById('viewNotice').style.display = 'none';
             document.getElementById('addTeam').style.display = 'none';
+            document.getElementById('changePass').style.display = 'none';
         }
     };
 
@@ -533,6 +689,7 @@ if (isset($_GET['msg'])) {
             document.getElementById('viewNotice').style.display = 'none';
             document.getElementById('addNotice').style.display = 'none';
             document.getElementById('addTeam').style.display = 'none';
+            document.getElementById('changePass').style.display = 'none';
 
         }
     };
@@ -546,6 +703,7 @@ if (isset($_GET['msg'])) {
             document.getElementById('viewImg').style.display = 'none';
             document.getElementById('viewNotice').style.display = 'none';
             document.getElementById('addTeam').style.display = 'none';
+            document.getElementById('changePass').style.display = 'none';
         }
     };
 
@@ -558,6 +716,7 @@ if (isset($_GET['msg'])) {
             document.getElementById('viewImg').style.display = 'none';
             document.getElementById('addNotice').style.display = 'none';
             document.getElementById('addTeam').style.display = 'none';
+            document.getElementById('changePass').style.display = 'none';
         }
     };
     function function7() {
@@ -569,6 +728,19 @@ if (isset($_GET['msg'])) {
             document.getElementById('viewImg').style.display = 'none';
             document.getElementById('addNotice').style.display = 'none';
             document.getElementById('viewNotice').style.display = 'none';
+            document.getElementById('changePass').style.display = 'none';
+        }
+    };
+    function function8() {
+        if (document.getElementById('changePass').style.display == 'none') {
+            document.getElementById('changePass').style.display = 'block';
+            document.getElementById('createEvent').style.display = 'none';
+            document.getElementById('viewEvent').style.display = 'none';
+            document.getElementById('addImg').style.display = 'none';
+            document.getElementById('viewImg').style.display = 'none';
+            document.getElementById('addNotice').style.display = 'none';
+            document.getElementById('viewNotice').style.display = 'none';
+            document.getElementById('addTeam').style.display = 'none';
         }
     };
 </script>

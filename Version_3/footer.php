@@ -24,7 +24,7 @@
             <h4>GET IN TOUCH</h4>
             <hr>
             <p>Phone: +916204397945</p>
-            <p>Email:<a href=" mailto:safezoneactivehumanity@gmail.com">info.sahfofficial@gmail.com</a></p>
+            <p>Email:<a href=" mailto:info.sahfofficial@gmail.com">info.sahfofficial@gmail.com</a></p>
         </div>
         <div class="socil-icone">
             <a href="https://www.facebook.com/activehumanityfoundation/" target="_blank"><i class="fab fa-facebook-f"></i></a>

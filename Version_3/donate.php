@@ -1,4 +1,4 @@
- <?php include 'redirect.php' ?>; 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,8 +33,66 @@
             <h1> DONATE NOW</h1>
         </div>
         <h5>BE A PART OF CHANGE </h5>
-        <h6>Donate now and make a beautiful path in someone's life</h6>
+        <h6>Donate now and make a beautiful path in someone's life</h6><br>
+        <br>
+        <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+include 'redirect.php';
+ include "shared/connection.php"; // Include the database connection
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Process form submission
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $mobile = $_POST['phone'];
+    $amount = $_POST['amount'];
+    $screenshotFile = $_FILES['screenshot'];
+    
+    // Check if a file was uploaded
+    if ($screenshotFile['error'] === 0) {
+        $uploadDir = 'shared/images/donate/';
+        $newFileName = time() . '_' . basename($screenshotFile['name']);
+        $uploadPath = $uploadDir . $newFileName;
+        
+        // Move uploaded file to the desired location
+        if (move_uploaded_file($screenshotFile['tmp_name'], $uploadPath)) {
+            // Insert data into the database
+            $sql = "INSERT INTO donation (name, email, mobile, amount, screenshot) VALUES (?, ?, ?, ?, ?)";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("sssss", $name, $email, $mobile, $amount, $uploadPath);
+            if ($stmt->execute()) {
+                // Success
+                echo "<p class='sucsess'>Data submitted successfully!</p>";
+            } else {
+                // Error
+                echo "<p class='error'>Error submitting data: " . $stmt->error."</p>";
+            }
+            $stmt->close();
+        } else {
+            echo "<p class='error'>Error uploading file.</p>";
+        }
+    } else {
+        echo "<p class='error'>Error uploading file: " . $screenshotFile['error'] . "</p>";
+    }
+}
+?>
         <div class="donate-cont">
+            <style>
+                .sucsess {
+                    color: green;
+    display: block;
+    text-align: center;
+    font-size: 16px;
+}
+.error {
+    color: red;
+    display: block;
+    text-align: center;
+    font-size: 16px;
+}
+            </style>
             <div class="donate-details">
                 <img src="images1/QR CODE.jpg" alt="">
             </div>
@@ -51,32 +109,32 @@
                 <p>UPI ID - ravisinghkushwaha@okhdfcbank</p>
             </div>
             <div class="donate-details">
-                <h6>Make A Record</h6>
-                <form>
-                    <div class="form-group">
-                        <label for="name"> Attach Screenshort": </label>
-                        <input type="file" name="name" id="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="name"> Rs: </label>
-                        <input type="text" name="name" id="name" class="form-data" placeholder="Rs" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="name"> Name: </label>
-                        <input type="text" name="name" id="name" class="form-data" placeholder="Enter Your Full name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email"> Email: </label>
-                        <input type="email" name="email" id="email" class="form-data" placeholder="Enter Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone"> Mob</label>
-                        <input type="number" name="phone" id="phone" class="form-data" placeholder="Enter Your Phone No." required>
-                    </div>
-                    <button type="submit" id="submit" class="btn" onclick="fun()"> Submit </button>
-                </form>
-            </div>
+            <h6>Make A Record</h6>
+            <form method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="screenshot">Attach Screenshot: </label>
+                    <input type="file" name="screenshot" id="screenshot" required>
+                </div>
+                <div class="form-group">
+                    <label for="amount">Rs: </label>
+                    <input type="text" name="amount" id="amount" class="form-data" placeholder="Amount Paid" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">Name: </label>
+                    <input type="text" name="name" id="name" class="form-data" placeholder="Enter Your Full Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email: </label>
+                    <input type="email" name="email" id="email" class="form-data" placeholder="Enter Your Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Mobile: </label>
+                    <input type="number" name="phone" id="phone" class="form-data" placeholder="Enter Your Phone No." required>
+                </div>
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </div>
+        </div>
         </div>
     </section>
 
@@ -85,12 +143,7 @@
     <?php include 'footer.php'; ?>
 
 
-    <script>
-        function fun() {
-            alert('technical error..')
-        }
-    </script>
-
+    
 </body>
 
 </html>
